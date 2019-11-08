@@ -1,0 +1,8 @@
+{% extends 'starting5/base.html' %}
+
+{% block content %}
+    <h2>{{ player.name }} <a href="{% url 'player_edit' pk=player.pk %}">(edit)</a></h2>
+    <h3>By: {{ player.team.name }}</h3>
+
+    nba_team: {{ player.nba_team }}
+{% endblock %}

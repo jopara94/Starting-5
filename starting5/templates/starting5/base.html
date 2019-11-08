@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Starting 5</title>
+    <link rel="stylesheet" href="{% static 'css/starting5.css' %}" />
+  </head>
+  <body>
+    <h1>My Starting 5</h1>
+    <nav>
+      <a href="{% url 'player_list' %}">List of Players</a>
+      <a href="{% url 'team_list' %}">Teams</a>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>

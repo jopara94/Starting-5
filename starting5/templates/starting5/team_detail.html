@@ -1,0 +1,19 @@
+{% extends 'starting5/base.html' %}
+
+<!-- {% load favorite_tags %} -->
+
+{% block content %}
+    <h2>{{ team.name }} <a href="{% url 'team_edit' pk=team.pk %}">(edit)</a></h2>
+    <h4>{{ team.description }}</h4>
+
+    <img src="{{ team.logo_url }}" alt="" class="team-logo">
+
+    <h3>Players <a href="{% url 'player_create' %}">(+)</a></h3>
+    <ul>
+        {% for player in team.players.all %}
+            <li>
+                <a href="{% url 'player_detail' pk=player.pk %}">{{ player.name }}-{{ player.nba_team }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

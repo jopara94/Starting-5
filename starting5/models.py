@@ -2,18 +2,18 @@ from django.db import models
 
 # Create your models here.
 class Team(models.Model):
-    team_name = models.CharField(max_length=100)
-    summary = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, default='My Team Name')
+    summary = models.CharField(max_length=100, default='How I Describe My Team')
     logo_url = models.TextField()
 
     def __str__(self):
-        return self.team_name
+        return self.name
 
 class Player(models.Model):
-    name = models.CharField(max_length=100)
-    nba_team = models.CharField(max_length=100)
-    photo_url = models.TextField()
-    # artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='songs')
+    name = models.CharField(max_length=100, default='Player Name')
+    nba_team = models.CharField(max_length=100, default='NBA Team')
+    photo_url = models.TextField(null=True, blank=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='players', default='')
 
     def __str__(self):
-        return self.title
+        return self.name
